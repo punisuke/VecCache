@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "veccache"
+name = "vec_cache"
 version = "0.1.0"
 description = ""
 authors = ["kaz <kaz.j11@gmail.com>"]
