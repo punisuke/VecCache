@@ -1,1 +1,1 @@
-from .core import VecCache
+from .core import VecCache  # noqa
