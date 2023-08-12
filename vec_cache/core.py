@@ -29,7 +29,7 @@ class VecCache:
         openai_api_key: str = "",
         embedding_model_name: str = "text-embedding-ada-002",
         vector_size: int = 1536,
-        distance_thresh: float = 0.5,
+        distance_thresh: float = 0.05,
     ):
         """Initializes the VecCache class with provided configurations.
 
@@ -38,7 +38,7 @@ class VecCache:
             openai_api_key (str): OpenAI API key. Default is an empty string.
             embedding_model_name (str): Name of the embedding model. Default is "text-embedding-ada-002".
             vector_size (int): Size of the vector. Default is 1536.
-            distance_thresh (float): Distance threshold for vector search. Default is 0.5.
+            distance_thresh (float): Distance threshold for vector search. Default is 0.05.
         """
         self.ttl = ttl
         self.embedding_model_name = embedding_model_name
