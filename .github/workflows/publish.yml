@@ -29,12 +29,9 @@ jobs:
       run: |
         poetry install
 
-    - name: Install build dependencies
-      run: |
-        pip install poetry-dynamic-versioning
-
     - name: Build package
       run: |
+        poetry dynamic-versioning enable
         poetry build
 
     - name: Publish to PyPI
