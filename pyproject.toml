@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "vec_cache"
-version = "0.1.0"
+version = "0.1.1"
 description = ""
 authors = ["kaz <kaz.j11@gmail.com>"]
 license = "MIT"
