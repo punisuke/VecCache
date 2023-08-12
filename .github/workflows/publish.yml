@@ -31,7 +31,7 @@ jobs:
 
     - name: Build package
       run: |
-        poetry dynamic-versioning enable
+        poetry self add "poetry-dynamic-versioning[plugin]"
         poetry build
 
     - name: Publish to PyPI
