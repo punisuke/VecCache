@@ -26,7 +26,7 @@ pre-commit = "^3.3.3"
 
 [build-system]
 requires = ["poetry-core",  "poetry-dynamic-versioning"]
-build-backend = "poetry.core.masonry.api"
+build-backend = "poetry_dynamic_versioning.backend"
 
 [build]
 include = ["vec_cache/**"]
