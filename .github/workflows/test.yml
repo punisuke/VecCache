@@ -1,7 +1,10 @@
 name: Run Pytest
 
 on:
-  pull_request
+  pull_request:
+    paths:
+     - vec_cache/**
+     - tests/**
 
 jobs:
   test:
