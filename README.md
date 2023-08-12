@@ -1,7 +1,3 @@
-Sure! Below is a base `README.md` for your Python package:
-
----
-
 # VecCache
 
 VecCache is a Python package that provides an easy interface to cache embeddings of texts using OpenAI's API and allows for fast similarity searches over the cached embeddings.
