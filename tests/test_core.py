@@ -1,3 +1,4 @@
+import numpy as np
 import pytest
 
 from vec_cache.core import VecCache
@@ -31,7 +32,7 @@ class TestVecCache:
         initial_len = len(self.vec_cache.texts)
         self.vec_cache._add_vector("sample text", [1.0] * 1536)
         assert len(self.vec_cache.texts) == initial_len + 1
-        assert self.vec_cache.texts[-1] == "sample text"
+        assert self.vec_cache.texts[-1].text == "sample text"
 
     def test_generate_vector(self, mock_openai_embedding):
         vector = self.vec_cache._generate_vector("Hello, World!")
@@ -50,3 +51,22 @@ class TestVecCache:
         self.vec_cache.store_with_vector("Hello, World!", dummy_vector)
         result = self.vec_cache.search("Hello, World!", return_with_distance=True)
         assert result[0] == "Hello, World!"
+        assert isinstance(result[1], np.float32)
+
+    def test_store_with_vector_and_search_multi(self):
+        dummy_vector = [1.0] * 1536
+        self.vec_cache.store_with_vector("Hello, World!", dummy_vector)
+        dummy_vector = [0.1] * 1536
+        self.vec_cache.store_with_vector("foo", dummy_vector)
+        result = self.vec_cache.search_with_vector(
+            [0.9] * 1536, return_with_distance=True
+        )
+        assert result[0] == "Hello, World!"
+        assert isinstance(result[1], np.float32)
+
+    def test_empty_search(self):
+        result = self.vec_cache.search_with_vector(
+            [1.0] * 1536, return_with_distance=True
+        )
+        assert result[0] == ""
+        assert isinstance(result[1], np.float32)
