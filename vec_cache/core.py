@@ -48,8 +48,7 @@ class VecCache:
         if openai_api_key:
             openai.api_key = openai_api_key
         else:
-            openai_api_key = os.environ.get("OPENAI_API_KEY", "")
-        # TODO use ttl
+            openai.api_key = os.environ.get("OPENAI_API_KEY", "")
 
     def _setup_db(self, size: int) -> faiss.IndexFlatL2:
         """Sets up the FAISS index.
